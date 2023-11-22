@@ -1,0 +1,100 @@
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+
+}
+
+
+:root{
+--text: hsl(24, 33%, 6%);
+--background: hsl(22, 31%, 95%);
+--primary: hsl(21, 33%, 21%);
+--secondary: hsl(21, 33%, 90%);
+--accent: hsl(20, 32%, 50%);
+}
+
+  h1{
+  font-family: sportage;
+  margin: 20px 20px;
+  text-align: center;
+}
+
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--background);
+}
+dialog{
+  position: absolute;
+  left: 50vw;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  margin: 0; 
+}
+
+form{
+  height: 500px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 20px;
+  background-image: url(./pictures/wheyBG.jpg);
+  background-repeat: no-repeat;
+  background-position-y: 250px;
+  background-position-x: 50%;
+  background-size: 200px;
+
+}
+
+.form__groups{
+  display: flex;
+  flex-direction: column;
+  padding: 3px 0;
+}
+
+.form__btns{
+  display: flex;
+  justify-content: space-evenly;
+  height: 20px;
+  margin: 20px 0;
+}
+
+
+::backdrop {
+  background-color: gray;
+    opacity: 0.75;
+  }
+
+  .openDialog{
+    margin-bottom: 20px;
+    padding: 5px 10px;
+    outline:none;
+    border: solid var(--primary) 2px;
+    color: var(--text);
+    cursor: pointer;
+  }
+  .allProteinProducts{
+    display: grid; 
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 20px;
+    margin: 0 20px;
+  }
+  .protein__productCard{
+    padding: 20px;
+    height: 300px;
+    box-shadow: 10px 10px 10px var(--accent);
+    background-position: 50% 80% ;
+    background-size: 150px;
+    background-repeat: no-repeat;
+    font-size: 1.2em;
+    text-align: center;
+    line-height: 1.8;
+    border-top: var(--secondary) solid 2px;
+    border-left: var(--secondary) solid 2px;
+
+
+  }
+  
