@@ -3,48 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Protein Check</title>
 </head>
 <body>
     <main >
         <h1>Ever forget what protein shakes you actually enjoyed? Or were ever curious if a protein bar is more candy than protein? Well not anymore.</h1>
         <dialog class="protein__dialog">
-            <form action="">
+            <form action="" class="form__container">
                 <div class="form__groups">
-                    <label for="">Name</label>
-                    <input type="text" name="" id="">
-
+                    <label for="proteinName">Name</label>
+                    <input type="text" name="proteinName" class="proteinName">
                 </div>
                 <div class="form__groups">
-                    <label for="">Protein Amount</label>
-                    <input type="number" name="" id="">
+                    <label for="proteinAmount">Protein Amount</label>
+                    <input type="number" name="proteinAmount" class="proteinAmount" value="0">
                 </div>
                 <div class="form__groups">
-                    <label for="">Calories</label>
-                    <input type="number" name="" id="">
+                    <label for="proteinCalories">Calories</label>
+                    <input type="number" name="proteinCalories" class="proteinCalories" value="0">
                 </div>
                 <div class="form__groups">
-                    <label for="">Carbs</label>
-                    <input type="number" name="" id="">
+                    <label for="proteinCarbs">Carbs</label>
+                    <input type="number" name="proteinCarbs" class="proteinCarbs" value="0">
                 </div>
                 <div class="form__groups">
-                    <label for="">fats</label>
-                    <input type="number" name="" id="">
+                    <label for="proteinFats">Fats</label>
+                    <input type="number" name="proteinFats" class="proteinFats" value="0">
                 </div>
                 <div class="form__groups">
-                    <label for="">Protein Image</label>
-                    <input type="url" name="" id="" placeholder="Not required">
+                    <label for="proteinImg">Protein Image</label>
+                    <input type="url" name="proteinImg" class="proteinImg" placeholder="Not required">
                 </div>
                 <div class="form__groups">
-                    <label for="">Will you try it again?</label>
-                    <select name="" id="">
+                    <label for="proteinTryAgain">Will you try it again?</label>
+                    <select name="proteinTryAgain" class="proteinTryAgain">
                         <option value="yes">YES</option>
                         <option value="no">NO</option>
                     </select>
                 </div>
                 <div class="form__btns">
                     <button class="closeDialog" autofocus>Close</button>
-                    <input type="submit" value="Submit protein">
+                    <input type="submit" value="Submit protein" class="submitProtein">
                 </div>
             </form>
         </dialog>
@@ -54,7 +54,10 @@
 
     </main>
 </body>
-<link rel="stylesheet" href="./style.css">
+
 <script src="./script.js"></script>
+<link rel="stylesheet" href="./style.css">
+<script src="https://kit.fontawesome.com/a540afb5d1.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="./sportage-font 2/SportageDemo-DO0A1.otf">
+
 </html>

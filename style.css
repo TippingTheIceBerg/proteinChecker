@@ -94,7 +94,14 @@ form{
     line-height: 1.8;
     border-top: var(--secondary) solid 2px;
     border-left: var(--secondary) solid 2px;
-
-
+    position: relative;
   }
-  
+  i{
+    font-size: 1.5em;;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
