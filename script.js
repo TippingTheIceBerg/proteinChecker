@@ -1,6 +1,7 @@
 let storeProteinProduct = []
 const dialog = document.querySelector("dialog");
 
+
 let displayPP = document.querySelector(".allProteinProducts");
 const showButton = document.querySelector(".openDialog");
 const closeButton = document.querySelector(".closeDialog");
@@ -30,6 +31,7 @@ let storeProteinTry = document.querySelector(".proteinTryAgain");
 let storeProteinImg = document.querySelector(".proteinImg");
 
 let addEditIcon = ['fa-solid','fa-pen-to-square'];
+let addDelIcon = ["fa-solid", "fa-delete-left"];
 
 let pn;
 let pa;
@@ -58,6 +60,8 @@ this.fats = fats;
 this.brandImg = brandImg;
 this.tryAgain = tryAgain;
 }
+
+
 // adds HTML of values, this does ONLY the visual aspect.
 function addProteinHTML() {
   displayPP.innerText = "";
@@ -70,19 +74,23 @@ function addProteinHTML() {
     let calories = storeProteinProduct[i].calories;
     let brandImg = storeProteinProduct[i].brandImg;
     let tryAgain = storeProteinProduct[i].tryAgain;
-    let carbs = storeProteinProduct[i].carbs
-    let fats = storeProteinProduct[i].fats
+    let carbs = storeProteinProduct[i].carbs;
+    let fats = storeProteinProduct[i].fats;
     let p = document.createElement("p");
     let edit = document.createElement("i");
-    console.log(calories);
+    let delBtn = document.createElement("i");
+
     // adds the font awesome icon with classList
     edit.classList.add(...addEditIcon);
+    delBtn.classList.add(...addDelIcon);
+
     p.textContent = `The protein ${name}, has ${proteinAmount} grams of protein with ${calories} calories, ${carbs} carbs, and ${fats} grams of total fats. You said ${tryAgain} to trying it again.`;
     // gives the default img if no image is provided
     createDiv.style.backgroundImage = `url(${brandImg})`;
     createDiv.setAttribute("data-attribute",i)
     createDiv.append(p);
     createDiv.append(edit);
+    createDiv.append(delBtn);
     displayPP.append(createDiv);
   }
 }
@@ -116,7 +124,7 @@ submitProtein.addEventListener("click",(e)=>{
   dialog.close();
   addProteinHTML();
   findAllEditBtns();
-  console.log(storeProteinProduct);
+  findAllDelBtns();
   // resets form values back to 0
   form.reset();
 })
@@ -125,7 +133,8 @@ submitProtein.addEventListener("click",(e)=>{
 function findAllEditBtns(){
   editBtns = document.querySelectorAll(".fa-pen-to-square");
   retriveAllEditValues(editBtns);
-}
+};
+
 let getParentIndex;
 
 // edit btn will retrieve the index values
@@ -135,13 +144,14 @@ function retriveAllEditValues(editBtns){
       dialog.showModal();
       //gets the i position of the clicked edit card.
       getParentIndex = btn.parentElement.getAttribute("data-attribute");
-      // will show 
       pullFormDataToEdit(getParentIndex);
       // now true, a new product in theory should not be made.
       editState = true;
     })
   })
-}
+};
+
+// shows edit btns card info in the form
 function pullFormDataToEdit(i){
   storeProteinName.value = storeProteinProduct[i].name;
   storeProteinAmount.value = storeProteinProduct[i].proteinAmount;
@@ -151,7 +161,7 @@ function pullFormDataToEdit(i){
   storeProteinTry.value = storeProteinProduct[i].tryAgain
   storeProteinImg.value = storeProteinProduct[i].brandImg;
 }
-
+// edits in new info into the array 
 function sliceOutAndInsertEdit(getParentIndex){
     getUserValues();
     storeProteinProduct[getParentIndex].name = pn;
@@ -165,3 +175,19 @@ function sliceOutAndInsertEdit(getParentIndex){
     return;
 }
 
+let delBtns;
+
+function findAllDelBtns(){
+  delBtns = document.querySelectorAll(".fa-delete-left");
+  removeProtein(delBtns);
+}
+// removes the protein from user list
+function removeProtein(delBtns){
+  delBtns.forEach(btns =>{
+    btns.addEventListener('click',() =>{
+      getParentIndex = btns.parentElement.getAttribute("data-attribute");
+      storeProteinProduct.splice(getParentIndex,1)
+      addProteinHTML();
+    })
+  })
+}
